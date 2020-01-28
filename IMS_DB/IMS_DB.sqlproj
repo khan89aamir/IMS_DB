@@ -58,4 +58,14 @@
   <ItemGroup>
     <Folder Include="Properties" />
   </ItemGroup>
+  <ItemGroup>
+    <Build Include="BackupConfig.sql" />
+    <Build Include="CompanyMaster.sql" />
+    <Build Include="Login_History.sql" />
+    <Build Include="RegistrationDetails.sql" />
+    <Build Include="UserManagement.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMS_DB.publish.xml" />
+  </ItemGroup>
 </Project>
