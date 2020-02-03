@@ -64,6 +64,7 @@
     <Build Include="Login_History.sql" />
     <Build Include="RegistrationDetails.sql" />
     <Build Include="UserManagement.sql" />
+    <Build Include="CategoryMaster.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="IMS_DB.publish.xml" />

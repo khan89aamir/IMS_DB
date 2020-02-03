@@ -11,7 +11,8 @@ CREATE TABLE [dbo].[UserManagement](
 	[CreatedOn] [datetime] NULL CONSTRAINT [DF_UserManagement_CreatedOn]  DEFAULT (getdate()),
 	[UpdatedBy] [int] NULL,
 	[UpdatedOn] [datetime] NULL,
- CONSTRAINT [PK_UserManagement] PRIMARY KEY CLUSTERED 
+ [EmailID] VARCHAR(50) NULL, 
+    CONSTRAINT [PK_UserManagement] PRIMARY KEY CLUSTERED 
 (
 	[ID] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
