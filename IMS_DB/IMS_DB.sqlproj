@@ -65,6 +65,7 @@
     <Build Include="RegistrationDetails.sql" />
     <Build Include="UserManagement.sql" />
     <Build Include="CategoryMaster.sql" />
+    <Build Include="CountryMaster.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="IMS_DB.publish.xml" />
