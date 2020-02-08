@@ -1,6 +1,6 @@
 
 CREATE TABLE [dbo].[CompanyMaster](
-	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[CompanyID] [int] IDENTITY(1,1) NOT NULL,
 	[CompanyName] [nvarchar](50) NULL,
 	[Address] [nvarchar](max) NULL,
 	[MobileNo] [varchar](13) NULL,
@@ -11,7 +11,7 @@ CREATE TABLE [dbo].[CompanyMaster](
 	[UpdatedOn] [datetime] NULL,
  CONSTRAINT [PK_CompanyMaster] PRIMARY KEY CLUSTERED 
 (
-	[ID] ASC
+	[CompanyID] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 

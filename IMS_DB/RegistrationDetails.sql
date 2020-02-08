@@ -1,6 +1,6 @@
 
 CREATE TABLE [dbo].[RegistrationDetails](
-	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[RegistrationID] [int] IDENTITY(1,1) NOT NULL,
 	[SoftKey] [varchar](max) NULL,
 	[RegDate] [date] NULL,
 	[ExpiryDate] [varchar](max) NULL,
@@ -11,7 +11,7 @@ CREATE TABLE [dbo].[RegistrationDetails](
 	[IsKeyEnter] [bit] NULL CONSTRAINT [DF_RegistrationDetails_IsKeyEnter]  DEFAULT ((0)),
  CONSTRAINT [PK_RegistrationDetails] PRIMARY KEY CLUSTERED 
 (
-	[ID] ASC
+	[RegistrationID] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 

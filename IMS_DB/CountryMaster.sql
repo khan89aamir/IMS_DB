@@ -1,6 +1,6 @@
 
 CREATE TABLE [dbo].[CountryMaster](
-	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[CountryID] [int] IDENTITY(1,1) NOT NULL,
 	[CountryCode] [nvarchar](10) NULL,
 	[CountryName] [nvarchar](50) NULL,
 	[ActiveStatus] [bit] NOT NULL CONSTRAINT [DF_CountryMaster_ActiveStatus]  DEFAULT ((1)),
@@ -10,7 +10,7 @@ CREATE TABLE [dbo].[CountryMaster](
 	[UpdatedOn] [datetime] NULL,
  CONSTRAINT [PK_CountryMaster] PRIMARY KEY CLUSTERED 
 (
-	[ID] ASC
+	[CountryID] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 

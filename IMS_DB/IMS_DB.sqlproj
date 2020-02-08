@@ -66,8 +66,13 @@
     <Build Include="UserManagement.sql" />
     <Build Include="CategoryMaster.sql" />
     <Build Include="CountryMaster.sql" />
+    <Build Include="SupplierMaster.sql" />
+    <Build Include="StoreMaster.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="IMS_DB.publish.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="IMS_DB.refactorlog" />
   </ItemGroup>
 </Project>
