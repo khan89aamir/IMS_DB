@@ -68,6 +68,10 @@
     <Build Include="CountryMaster.sql" />
     <Build Include="SupplierMaster.sql" />
     <Build Include="StoreMaster.sql" />
+    <Build Include="BrandMaster.sql" />
+    <Build Include="ProductMaster.sql" />
+    <Build Include="ProductStockMaster.sql" />
+    <Build Include="PurchaseInvoice.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="IMS_DB.publish.xml" />
