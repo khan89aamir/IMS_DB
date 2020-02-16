@@ -12,6 +12,7 @@ CREATE TABLE [dbo].[UserManagement](
 	[CreatedOn] [datetime] NULL CONSTRAINT [DF_UserManagement_CreatedOn]  DEFAULT (getdate()),
 	[UpdatedBy] [int] NULL,
 	[UpdatedOn] [datetime] NULL, 
+    [EmployeeID] INT NULL, 
     CONSTRAINT [PK_UserManagement] PRIMARY KEY CLUSTERED 
 (
 	[UserID] ASC

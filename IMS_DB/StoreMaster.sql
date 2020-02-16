@@ -10,7 +10,8 @@ CREATE TABLE [dbo].[StoreMaster](
 	[CreatedOn] [datetime] NOT NULL CONSTRAINT [DF_StoreMaster_CreatedOn]  DEFAULT (getdate()),
 	[UpdatedBy] [int] NULL,
 	[UpdatedOn] [datetime] NULL,
- CONSTRAINT [PK_StoreMaster] PRIMARY KEY CLUSTERED 
+ [StoreCategory] INT NULL, 
+    CONSTRAINT [PK_StoreMaster] PRIMARY KEY CLUSTERED 
 (
 	[StoreID] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]

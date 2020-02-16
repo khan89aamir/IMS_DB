@@ -72,6 +72,11 @@
     <Build Include="ProductMaster.sql" />
     <Build Include="ProductStockMaster.sql" />
     <Build Include="PurchaseInvoice.sql" />
+    <Build Include="SalesDetails.sql" />
+    <Build Include="SalesInvoiceDetails.sql" />
+    <Build Include="EmployeeDetails.sql" />
+    <Build Include="Settings.sql" />
+    <Build Include="SequenceInvoice.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="IMS_DB.publish.xml" />
