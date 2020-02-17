@@ -77,6 +77,7 @@
     <Build Include="EmployeeDetails.sql" />
     <Build Include="Settings.sql" />
     <Build Include="SequenceInvoice.sql" />
+    <Build Include="PurchaseInvoiceDetails.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="IMS_DB.publish.xml" />

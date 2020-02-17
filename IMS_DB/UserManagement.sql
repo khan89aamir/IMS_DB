@@ -4,15 +4,15 @@ CREATE TABLE [dbo].[UserManagement](
 	[UserName] [nvarchar](50) NULL,
 	[Password] [nvarchar](max) NULL,
 	[EmailID] VARCHAR(50) NULL,
+    [EmployeeID] INT NULL, 
 	[IsAdmin] [bit] NULL,
 	[SecurityQuestion] [nvarchar](50) NULL,
 	[Answer] [nvarchar](100) NULL,
 	[IsBlock] [bit] NULL,
-	[CreatedBy] [int] NULL,
+	[CreatedBy] [int] NULL CONSTRAINT [DF_UserManagement_CreatedBy]  DEFAULT(0),
 	[CreatedOn] [datetime] NULL CONSTRAINT [DF_UserManagement_CreatedOn]  DEFAULT (getdate()),
 	[UpdatedBy] [int] NULL,
 	[UpdatedOn] [datetime] NULL, 
-    [EmployeeID] INT NULL, 
     CONSTRAINT [PK_UserManagement] PRIMARY KEY CLUSTERED 
 (
 	[UserID] ASC
