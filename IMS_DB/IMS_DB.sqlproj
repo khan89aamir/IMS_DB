@@ -78,6 +78,7 @@
     <Build Include="Settings.sql" />
     <Build Include="SequenceInvoice.sql" />
     <Build Include="PurchaseInvoiceDetails.sql" />
+    <Build Include="CurrencyRateSetting.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="IMS_DB.publish.xml" />
