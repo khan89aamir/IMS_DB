@@ -7,6 +7,7 @@ CREATE TABLE [dbo].[PurchaseInvoice](
 	[TotalQTY] [int] NOT NULL,
 	[SupplierID] [int] NOT NULL,
 	[BillDate] [date] NOT NULL,
+	[IsInvoiceDone] [bit] NOT NULL CONSTRAINT [DF_PurchaseInvoice_IsInvoiceDone]  DEFAULT ((0)),
 	[CreatedBy] [int] NOT NULL CONSTRAINT [DF_PurchaseInvoice_CreatedBy]  DEFAULT ((0)),
 	[CreatedOn] [datetime] NOT NULL CONSTRAINT [DF_PurchaseInvoice_CreatedOn]  DEFAULT (getdate()),
 	[UpdatedBy] [int] NULL,
