@@ -1,7 +1,7 @@
 CREATE TABLE [dbo].[CustomerMaster](
 	[CustomerID] [int] IDENTITY(1,1) NOT NULL,
-	[CustomerName] [nvarchar](max) NULL,
-	[CustomerAddress] [nvarchar](max) NULL,
+	[Name] [nvarchar](max) NULL,
+	[Address] [nvarchar](max) NULL,
 	[PhoneNo] [nvarchar](50) NULL,
 	[ActiveStatus] [bit] NOT NULL,
 	[CreatedBy] [int] NOT NULL,
