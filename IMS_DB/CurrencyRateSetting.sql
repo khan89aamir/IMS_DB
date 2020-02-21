@@ -1,7 +1,9 @@
 CREATE TABLE [dbo].[CurrencyRateSetting](
 	[CurrencyRateID] [int] IDENTITY(1,1) NOT NULL,
 	[CountryID] [int] NOT NULL,
-	[Rate] [decimal](18, 2) NULL,
+	[CurrencyCode] [nvarchar](50) NULL,
+	[CurrencyName] [nvarchar](50) NULL,
+	[CurrencyRate] [decimal](18, 3) NULL,
 	[ActiveStatus] [bit] NOT NULL CONSTRAINT [DF_CurrencyRateSetting_ActiveStatus]  DEFAULT ((1)),
 	[CreatedBy] [int] NOT NULL CONSTRAINT [DF_CurrencyRateSetting_CreatedBy]  DEFAULT ((0)),
 	[CreatedOn] [datetime] NOT NULL CONSTRAINT [DF_CurrencyRateSetting_CreatedOn]  DEFAULT (getdate()),

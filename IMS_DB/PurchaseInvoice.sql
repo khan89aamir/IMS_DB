@@ -1,13 +1,15 @@
-
 CREATE TABLE [dbo].[PurchaseInvoice](
 	[PurchaseInvoiceID] [int] IDENTITY(1,1) NOT NULL,
 	[SupplierBillNo] [varchar](50) NULL,
 	[ShipmentNo] [varchar](50) NULL,
-	[BillValue] [decimal](18, 2) NOT NULL,
-	[TotalQTY] [int] NOT NULL,
 	[SupplierID] [int] NOT NULL,
 	[BillDate] [date] NOT NULL,
 	[IsInvoiceDone] [bit] NOT NULL CONSTRAINT [DF_PurchaseInvoice_IsInvoiceDone]  DEFAULT ((0)),
+	[TotalQTY] [int] NOT NULL,
+	[BillValue] [decimal](18, 2) NOT NULL,
+	[Discount] [decimal](18, 2) NULL,
+	[ForeignExp] [decimal](18, 2) NULL,
+	[GrandTotal] [decimal](18, 2) NULL,
 	[CreatedBy] [int] NOT NULL CONSTRAINT [DF_PurchaseInvoice_CreatedBy]  DEFAULT ((0)),
 	[CreatedOn] [datetime] NOT NULL CONSTRAINT [DF_PurchaseInvoice_CreatedOn]  DEFAULT (getdate()),
 	[UpdatedBy] [int] NULL,
@@ -19,4 +21,3 @@ CREATE TABLE [dbo].[PurchaseInvoice](
 ) ON [PRIMARY]
 
 GO
-

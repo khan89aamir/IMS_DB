@@ -80,6 +80,7 @@
     <Build Include="PurchaseInvoiceDetails.sql" />
     <Build Include="CurrencyRateSetting.sql" />
     <Build Include="CustomerMaster.sql" />
+    <Build Include="Get_CurrencyRate.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="IMS_DB.publish.xml" />
