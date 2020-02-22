@@ -81,6 +81,9 @@
     <Build Include="CurrencyRateSetting.sql" />
     <Build Include="CustomerMaster.sql" />
     <Build Include="Get_CurrencyRate.sql" />
+    <Build Include="ColorMaster.sql" />
+    <Build Include="SizeTypeMaster.sql" />
+    <Build Include="SizeMaster.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="IMS_DB.publish.xml" />
