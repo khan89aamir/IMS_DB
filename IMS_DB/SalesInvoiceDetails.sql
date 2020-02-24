@@ -3,7 +3,7 @@
 	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
     [InvoiceNumber] NVARCHAR(50) NULL, 
     [InvoiceDate] DATETIME NULL, 
-    [Customer] INT NULL, 
+    [CustomerID] INT NULL, 
     [SalesMan] INT NULL, 
     [ShopeID] INT NULL,
     [SubTotal] DECIMAL(18, 2) NULL, 
