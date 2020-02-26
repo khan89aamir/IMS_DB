@@ -1,5 +1,4 @@
-﻿
-CREATE TABLE [dbo].[PurchaseInvoiceDetails](
+﻿CREATE TABLE [dbo].[PurchaseInvoiceDetails](
 	[PurchaseInvoiceDetailsID] [int] IDENTITY(1,1) NOT NULL,
 	[PurchaseInvoiceID] [int] NOT NULL,
 	[SupplierBillNo] [varchar](50) NULL,
@@ -8,8 +7,11 @@ CREATE TABLE [dbo].[PurchaseInvoiceDetails](
 	[BrandID] [int] NOT NULL,
 	[SupplierID] [int] NOT NULL,
 	[QTY] [int] NOT NULL,
-	[Rate] [decimal](18,2) NOT NULL,
+	[Rate] [decimal](18, 2) NOT NULL,
 	[BillDate] [date] NOT NULL,
+	[Sales_Price] [decimal](18, 2) NULL,
+	[AddedRatio] [int] NULL,
+	[SuppossedPrice] [decimal](18, 2) NULL,
 	[CreatedBy] [int] NOT NULL CONSTRAINT [DF_PurchaseInvoiceDetails_CreatedBy]  DEFAULT ((0)),
 	[CreatedOn] [datetime] NOT NULL CONSTRAINT [DF_PurchaseInvoiceDetails_CreatedOn]  DEFAULT (getdate()),
 	[UpdatedBy] [int] NULL,

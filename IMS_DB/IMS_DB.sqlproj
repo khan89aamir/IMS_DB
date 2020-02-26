@@ -84,6 +84,7 @@
     <Build Include="ColorMaster.sql" />
     <Build Include="SizeTypeMaster.sql" />
     <Build Include="SizeMaster.sql" />
+    <Build Include="Get_Delivering_PurchaseInvoice_BillDetails.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="IMS_DB.publish.xml" />
