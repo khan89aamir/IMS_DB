@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[SizeMaster](
 	[SizeID] [int] IDENTITY(1,1) NOT NULL,
-	[Size] [int] NULL,
+	[Size] [varchar](50) NULL,
 	[SizeTypeID] [int] NOT NULL,
 	[ActiveStatus] [bit] NOT NULL CONSTRAINT [DF_SizeMaster_ActiveStatus]  DEFAULT ((1)),
 	[CreatedBy] [int] NOT NULL CONSTRAINT [DF_SizeMaster_CreatedBy]  DEFAULT ((0)),
