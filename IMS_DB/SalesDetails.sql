@@ -7,5 +7,6 @@
 	[CreatedBy] [int] NOT NULL CONSTRAINT [DF_SalesDetails_CreatedBy]  DEFAULT ((0)),
 	[CreatedOn] [datetime] NOT NULL CONSTRAINT [DF_SalesDetails_CreatedOn]  DEFAULT (getdate()),
     [ModifiedBy] INT NULL, 
-    [ModifiedOn] DATETIME NULL
+    [ModifiedOn] DATETIME NULL, 
+    [Rate] DECIMAL NULL
 )
