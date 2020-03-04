@@ -89,6 +89,11 @@
     <Build Include="DeliveryPurchaseBill2.sql" />
     <Build Include="DeliveryPurchaseBill3.sql" />
     <Build Include="Get_PurchaseInvoice_Color_Size.sql" />
+    <Build Include="ERROR_Log.sql" />
+    <Build Include="PostingDeliveryEntry.sql" />
+    <Build Include="Delete_PurchaseInvoice_Color_Size.sql" />
+    <Build Include="Get_Posting_Delivery_QTY.sql" />
+    <Build Include="Insert_Posting_Delivery.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="IMS_DB.publish.xml" />

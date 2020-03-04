@@ -3,6 +3,7 @@
 -- Create date: <26th FEB 2020>
 -- Description:	<Description,,>
 -- =============================================
+--EXEC [dbo].[Get_Delivering_PurchaseInvoice_BillDetails] 'purinv01'
 CREATE PROCEDURE [dbo].[Get_Delivering_PurchaseInvoice_BillDetails]
 @Supplier_BillNo varchar(50)
 AS
@@ -14,9 +15,13 @@ BEGIN
 	SELECT pid.PurchaseInvoiceDetailsID, pid.PurchaseInvoiceID, pid.SupplierBillNo,
 	pid.ProductID, pid.ModelNo, pid.BrandID, pid.SupplierID, pid.QTY, pid.Rate, 
 	pid.BillDate, pid.Sales_Price, ISNULL(cat.CategoryID,0)CategoryID,pm.ProductName,
-	bm.BrandName,sm.SupplierName,sm.CountryID,cm.CountryName
+	bm.BrandName,sm.SupplierName,sm.CountryID,cm.CountryName,ISNULL(pid1.SizeTypeID,0)SizeTypeID
 	FROM [dbo].[PurchaseInvoiceDetails] pid
 	INNER JOIN [dbo].[ProductMaster] pm ON pid.ProductID = pm.ProductID
+	
+	LEFT JOIN [dbo].[DeliveryPurchaseBill1] pid1 ON pid.ProductID = pid1.ProductID
+	AND pid.SupplierBillNo = @Supplier_BillNo
+
 	LEFT JOIN [dbo].[CategoryMaster] cat ON pm.CategoryID = cat.CategoryID
 	INNER JOIN [dbo].[BrandMaster] bm ON pid.BrandID = bm.BrandID
 	INNER JOIN [dbo].[SupplierMaster] sm ON pid.SupplierID = sm.SupplierID

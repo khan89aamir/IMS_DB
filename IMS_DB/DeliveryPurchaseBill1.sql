@@ -1,8 +1,11 @@
 ﻿CREATE TABLE [dbo].[DeliveryPurchaseBill1](
 	[DeliveryPurchaseID1] [int] IDENTITY(1,1) NOT NULL,
+	[PurchaseInvoiceID] [int] NOT NULL,
+	[ProductID] [int] NOT NULL,
+	[StoreID] [int] NOT NULL,
 	[SupplierBillNo] [varchar](50) NOT NULL,
-	[SizeTypeID] [int] NULL,
-	[ModelNo] [nvarchar](50) NULL,
+	[SizeTypeID] [int] NOT NULL,
+	[ModelNo] [nvarchar](50) NOT NULL,
 	[CreatedBy] [int] NOT NULL CONSTRAINT [DF_DeliveryPurchaseBill1_CreatedBy]  DEFAULT ((0)),
 	[CreatedOn] [datetime] NOT NULL CONSTRAINT [DF_DeliveryPurchaseBill1_CreatedOn]  DEFAULT (getdate()),
 	[UpdatedBy] [int] NULL,
