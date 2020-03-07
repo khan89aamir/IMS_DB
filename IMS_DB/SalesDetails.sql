@@ -4,9 +4,9 @@
     [InvoiceID] INT NULL, 
     [ProductID] INT NULL, 
     [QTY] INT NULL,
-    [Rate] DECIMAL NULL,
+    [Rate] DECIMAL(18, 2) NULL,
 	[CreatedBy] [int] NOT NULL CONSTRAINT [DF_SalesDetails_CreatedBy]  DEFAULT ((0)),
 	[CreatedOn] [datetime] NOT NULL CONSTRAINT [DF_SalesDetails_CreatedOn]  DEFAULT (getdate()),
-    [ModifiedBy] INT NULL, 
-    [ModifiedOn] DATETIME NULL 
+    [UpdatedBy] INT NULL, 
+    [UpdatedOn] DATETIME NULL 
 )

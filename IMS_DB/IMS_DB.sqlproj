@@ -95,6 +95,7 @@
     <Build Include="Get_Posting_Delivery_QTY.sql" />
     <Build Include="Insert_Posting_Delivery.sql" />
     <Build Include="ProductStockColorSizeMaster.sql" />
+    <Build Include="Get_PurchaseInvoice_BulkPrint_Color_Size.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="IMS_DB.publish.xml" />
