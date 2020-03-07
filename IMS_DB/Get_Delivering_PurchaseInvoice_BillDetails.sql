@@ -12,7 +12,8 @@ BEGIN
 	-- interfering with SELECT statements.
 	SET NOCOUNT ON;
 
-	SELECT pid.PurchaseInvoiceDetailsID, pid.PurchaseInvoiceID, pid.SupplierBillNo,
+	SELECT ISNULL(pid1.DeliveryPurchaseID1,0) DeliveryPurchaseID1,pid.PurchaseInvoiceDetailsID, 
+	pid.PurchaseInvoiceID, pid.SupplierBillNo,
 	pid.ProductID, pid.ModelNo, pid.BrandID, pid.SupplierID, pid.QTY, pid.Rate, 
 	pid.BillDate, pid.Sales_Price, ISNULL(cat.CategoryID,0)CategoryID,pm.ProductName,
 	bm.BrandName,sm.SupplierName,sm.CountryID,cm.CountryName,ISNULL(pid1.SizeTypeID,0)SizeTypeID
