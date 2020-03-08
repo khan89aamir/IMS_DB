@@ -2,6 +2,7 @@
 CREATE TABLE [dbo].[StoreMaster](
 	[StoreID] [int] IDENTITY(1,1) NOT NULL,
 	[StoreName] [nvarchar](50) NOT NULL,
+	[StoreCategory] INT NULL,
 	[Tel] [varchar](50) NULL,
 	[Fax] [varchar](50) NULL,
 	[Place] [nvarchar](50) NULL,
@@ -9,8 +10,7 @@ CREATE TABLE [dbo].[StoreMaster](
 	[CreatedBy] [int] NOT NULL CONSTRAINT [DF_StoreMaster_CreatedBy]  DEFAULT ((0)),
 	[CreatedOn] [datetime] NOT NULL CONSTRAINT [DF_StoreMaster_CreatedOn]  DEFAULT (getdate()),
 	[UpdatedBy] [int] NULL,
-	[UpdatedOn] [datetime] NULL,
- [StoreCategory] INT NULL, 
+	[UpdatedOn] [datetime] NULL 
     CONSTRAINT [PK_StoreMaster] PRIMARY KEY CLUSTERED 
 (
 	[StoreID] ASC
@@ -18,5 +18,3 @@ CREATE TABLE [dbo].[StoreMaster](
 ) ON [PRIMARY]
 
 GO
-
-
