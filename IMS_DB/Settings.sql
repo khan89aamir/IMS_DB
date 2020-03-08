@@ -4,5 +4,6 @@
     [StoreID] INT NULL, 
     [MachineName] NVARCHAR(500) NULL, 
     [StoreCategory] NVARCHAR(50) NULL, 
-    [BarCodeSetting] NVARCHAR(MAX) NULL
+    [BarCodeSetting] NVARCHAR(MAX) NULL, 
+    [InvoiceFooterNote] NVARCHAR(MAX) NULL
 )
