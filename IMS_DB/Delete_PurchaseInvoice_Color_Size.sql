@@ -16,11 +16,14 @@ BEGIN
 		DECLARE @PARAMERES VARCHAR(MAX)=''
 		BEGIN TRANSACTION
 	SET @PARAMERES = @DeliveryPurchaseID;
+
 	DELETE FROM DeliveryPurchaseBill3 WHERE DeliveryPurchaseID1=@DeliveryPurchaseID
 	DELETE FROM DeliveryPurchaseBill2 WHERE DeliveryPurchaseID1=@DeliveryPurchaseID
 	DELETE FROM DeliveryPurchaseBill1 WHERE DeliveryPurchaseID1=@DeliveryPurchaseID
+	
 	SELECT 1 -- means its deleted
-		COMMIT
+	
+	COMMIT
 	END TRY
 
 	BEGIN CATCH

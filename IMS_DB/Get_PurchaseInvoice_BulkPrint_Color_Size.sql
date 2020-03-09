@@ -3,9 +3,11 @@
 -- Create date: <07th MARCH 2020>
 -- Description:	<Description,,>
 -- =============================================
--- EXEC [dbo].[Get_PurchaseInvoice_BulkPrint_Color_Size] 'purinv01'
+-- EXEC [dbo].[Get_PurchaseInvoice_BulkPrint_Color_Size] 1
+-- EXEC [dbo].[Get_PurchaseInvoice_BulkPrint_Color_Size] 'purinv01' OLD
 CREATE PROCEDURE [dbo].[Get_PurchaseInvoice_BulkPrint_Color_Size]
-@SupplierBillNo VARCHAR(MAX) =''
+@PurchaseInvoiceID INT=0
+--@SupplierBillNo VARCHAR(MAX) =''
 --,@ModelNo NVARCHAR(50) =''
 AS
 BEGIN
@@ -36,6 +38,7 @@ ID INT IDENTITY(1,1)
 ,ModelNo NVARCHAR(50)
 ,QTY INT
 ,Size VARCHAR(50)
+,Rate DECIMAL(18,2)
 ,BarcodeNo BIGINT
 )
 
@@ -43,7 +46,7 @@ DECLARE OUTER_CURSOR CURSOR
 FOR
 SELECT SizeTypeID,DeliveryPurchaseID1,ModelNo
 FROM DeliveryPurchaseBill1 WITH(NOLOCK)
-WHERE SupplierBillNo=''+@SupplierBillNo+''
+WHERE PurchaseInvoiceID=@PurchaseInvoiceID
 
 OPEN OUTER_CURSOR 
 
@@ -51,7 +54,7 @@ FETCH NEXT FROM OUTER_CURSOR INTO @SizeType_ID,  @DeliveryPurchaseID, @ModelNo
 WHILE @@FETCH_STATUS <> -1
 BEGIN
 	
-	SET @PARAMERES=CONCAT(@SupplierBillNo,',',@ModelNo)
+	SET @PARAMERES=CONCAT(@PurchaseInvoiceID,',',@ModelNo)
 
 	SET @i = 1
 	SET @query1=''
@@ -85,15 +88,15 @@ BEGIN
 	DEALLOCATE cursor_Size;
 
 	SET @query2='
-	SELECT ColorID,Color,ProductID,ProductName,QTY,Size,'+@ModelNo+' FROM
+	SELECT ColorID,Color,ProductID,ProductName,QTY,Size,ModelNo,Rate FROM
 	(SELECT clr.ColorName AS Color,
-	clr.ColorID,pd1.ProductID,pm.ProductName,'+@query1+'pd3.Total,FROM DeliveryPurchaseBill1 pd1
+	clr.ColorID,pd1.ProductID,pm.ProductName,pd1.ModelNo,pm.Rate,'+@query1+'pd3.Total,FROM DeliveryPurchaseBill1 pd1
 	INNER JOIN DeliveryPurchaseBill2 pd2 ON pd2.DeliveryPurchaseID1=pd1.DeliveryPurchaseID1
 	INNER JOIN DeliveryPurchaseBill3 pd3 ON pd3.DeliveryPurchaseID2=pd2.DeliveryPurchaseID2
 	INNER JOIN ColorMaster clr ON pd3.ColorID=clr.ColorID
 	INNER JOIN ProductMaster pm on pd1.ProductID = pm.ProductID
 	WHERE 
-	pd1.SupplierBillNo='''+CAST(@SupplierBillNo AS VARCHAR)+'''AND pd2.DeliveryPurchaseID1='+cast(@DeliveryPurchaseID as VARCHAR)+' group by	pd1.ProductID,pm.ProductName,clr.ColorID,clr.ColorName,pd3.Total)a UNPIVOT
+	pd1.PurchaseInvoiceID='+CAST(@PurchaseInvoiceID AS VARCHAR)+' AND pd2.DeliveryPurchaseID1='+CAST(@DeliveryPurchaseID as VARCHAR)+' group by	pd1.ProductID,pm.ProductName,clr.ColorID,clr.ColorName,pd1.ModelNo,pm.Rate,pd3.Total)a UNPIVOT
 	(
 	QTY
 	FOR SIZE IN ('+@queryunpivot+')
@@ -112,7 +115,8 @@ BEGIN
 	,ProductName
 	,QTY 
 	,Size 
-	,ModelNo)
+	,ModelNo
+	,Rate)
 	EXEC (@query2);
 
 FETCH NEXT FROM OUTER_CURSOR INTO @SizeType_ID,  @DeliveryPurchaseID, @ModelNo
@@ -126,10 +130,11 @@ ColorID
 ,Color	
 ,ProductID 
 ,ProductName
+,Rate
 ,ModelNo
 ,QTY 
 ,Size 
-,ID AS BarcodeNo 
+,ID AS BarcodeNo
 FROM #PurchaseInvoice_Color_Size
 WHERE QTY > 0
 

@@ -1,11 +1,11 @@
 ﻿-- =============================================
 -- Author:		<AAMIR KHAN>
--- Create date: <20th FEB 2020>
--- Modify date: <08th MAR 2020>
+-- Create date: <08th MARCH 2020>
 -- Description:	<Description,,>
 -- =============================================
---EXEC [dbo].[Get_CurrencyRate]
-CREATE PROCEDURE [dbo].[Get_CurrencyRate]
+--EXEC Get_PurchaseInvoice_Popup 'pur'
+CREATE PROCEDURE [dbo].[Get_PurchaseInvoice_Popup]
+@SupplierBillNo VARCHAR(50)=''
 AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
@@ -13,13 +13,14 @@ BEGIN
 	SET NOCOUNT ON;
 	BEGIN TRY
 	DECLARE @PARAMERES VARCHAR(MAX)=''
+	SET @PARAMERES=@SupplierBillNo
 
-	SELECT CR.CurrencyRateID, CR.CountryID,C.CountryCode,C.CountryName, CR.CurrencyRate,
-	CR.CurrencyCode, CR.CurrencyName
-	FROM
-	[dbo].[CurrencyRateSetting] CR
-	INNER JOIN [dbo].[CountryMaster] C ON CR.CountryID=C.CountryID
-
+	SELECT p.PurchaseInvoiceID, p.SupplierBillNo,p.SupplierID,s.SupplierName
+	FROM .[dbo].[PurchaseInvoice] p
+	INNER JOIN .[dbo].[SupplierMaster] s on p.SupplierID = s.SupplierID
+	WHERE ISNULL(p.IsInvoiceDone,0) = 0
+	AND p.SupplierBillNo like ''+@SupplierBillNo+'%'+''
+	
 	END TRY
 	
 	BEGIN CATCH
@@ -44,5 +45,4 @@ BEGIN
 	,@PARAMERES
 
 	END CATCH
-
 END

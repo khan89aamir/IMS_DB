@@ -2,7 +2,7 @@
 CREATE TABLE [dbo].[StoreMaster](
 	[StoreID] [int] IDENTITY(1,1) NOT NULL,
 	[StoreName] [nvarchar](50) NOT NULL,
-	[StoreCategory] INT NULL,
+	[StoreCategory] [int] NULL,
 	[Tel] [varchar](50) NULL,
 	[Fax] [varchar](50) NULL,
 	[Place] [nvarchar](50) NULL,
