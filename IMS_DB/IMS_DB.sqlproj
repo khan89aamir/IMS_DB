@@ -97,6 +97,8 @@
     <Build Include="ProductStockColorSizeMaster.sql" />
     <Build Include="Get_PurchaseInvoice_BulkPrint_Color_Size.sql" />
     <Build Include="Barcode_Sequance.sql" />
+	<Build Include="Get_PurchaseInvoice_Popup.sql" />
+    <Build Include="Insert_PurchaseInvoice_BulkPrint_Color_Size.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="IMS_DB.publish.xml" />
