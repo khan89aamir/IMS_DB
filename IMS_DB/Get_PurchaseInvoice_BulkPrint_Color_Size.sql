@@ -1,4 +1,5 @@
-﻿-- =============================================
+﻿
+-- =============================================
 -- Author:		<AAMIR KHAN>
 -- Create date: <07th MARCH 2020>
 -- Modify date: <10th MARCH 2020>
@@ -6,7 +7,7 @@
 -- =============================================
 -- EXEC [dbo].[Get_PurchaseInvoice_BulkPrint_Color_Size] 1
 -- EXEC [dbo].[Get_PurchaseInvoice_BulkPrint_Color_Size] 'purinv01' OLD
-create PROCEDURE [dbo].[Get_PurchaseInvoice_BulkPrint_Color_Size]
+Create PROCEDURE [dbo].[Get_PurchaseInvoice_BulkPrint_Color_Size]
 @PurchaseInvoiceID INT=0
 
 AS
@@ -19,7 +20,7 @@ BEGIN
 
 	SET @PARAMERES=@PurchaseInvoiceID
 
-	SELECT ps.ProductStockID, ps.PurchaseInvoiceID, ps.ProductID,pm.ProductName
+	SELECT ps.ProductStockID, ps.PurchaseInvoiceID, ps.ProductID,pm.ProductName,pm.Rate
 	, ps.StoreID, ps.BarcodeNo, ps.ColorID,cm.ColorName AS Color,sm.SizeID,sm.Size, ps.QTY, ps.ModelNo
 	FROM ProductStockMaster ps
 	INNER JOIN ProductMaster pm ON ps.ProductID = pm.ProductID
