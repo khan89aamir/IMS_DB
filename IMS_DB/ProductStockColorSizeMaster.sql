@@ -1,7 +1,7 @@
 ﻿CREATE TABLE [dbo].[ProductStockColorSizeMaster](
 	[ProductStockID] [int] IDENTITY(1,1) NOT NULL,
 	[ProductID] [int] NOT NULL,
-	[StoreID] [int] NOT NULL,
+	[StoreID] [int] NULL,
 	[BarcodeNo] [bigint] NULL,
 	[ColorID] [int] NOT NULL,
 	[Size] [varchar](20) NOT NULL,
