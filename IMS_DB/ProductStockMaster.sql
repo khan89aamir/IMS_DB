@@ -5,7 +5,7 @@ CREATE TABLE [dbo].[ProductStockMaster](
 	[StoreID] [int] NULL,
 	[BarcodeNo] [bigint] NULL,
 	[ColorID] [int] NULL,
-	[Size] [varchar](20) NULL,
+	[SizeID] [int] NOT NULL,
 	[ModelNo] NVARCHAR(50) NULL,
 	[QTY] [int] NULL,
 	[Rate] [decimal](18,2) NULL,

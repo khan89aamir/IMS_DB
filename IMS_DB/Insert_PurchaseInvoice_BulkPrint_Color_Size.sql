@@ -35,7 +35,8 @@ BEGIN
 		DECLARE @ProductID INT =0
 		DECLARE @ColorID INT =0
 		DECLARE @QTY	 INT =0
-		DECLARE @Size	 VARCHAR(20) ='0'
+		DECLARE @SizeID	 INT =0
+		--DECLARE @Size	 VARCHAR(20) ='0'
 
 		--IF OBJECT_ID('tempdb..#PurchaseInvoice_Color_Size') IS NOT NULL DROP TABLE #PurchaseInvoice_Color_Size
 		--	CREATE TABLE #PurchaseInvoice_Color_Size
@@ -48,7 +49,7 @@ BEGIN
 		--	,StoreID INT
 		--	,ModelNo NVARCHAR(50)
 		--	,QTY INT
-		--	,Size VARCHAR(50)
+		--	,SizeID INT
 		--	,Rate DECIMAL(18,2)
 		--	,BarcodeNo BIGINT
 		--	)
@@ -60,7 +61,7 @@ BEGIN
 		--SELECT ProductID, StoreID, ColorID, Size , QTY
 		--FROM #PurchaseInvoice_Color_Size
 		--WHERE QTY > 0
-		SELECT ProductID, StoreID, ColorID, Size , QTY
+		SELECT ProductID, StoreID, ColorID, SizeID , QTY
 		FROM dbo.ProductStockMaster
 		WHERE QTY > 0
 		
@@ -83,7 +84,8 @@ BEGIN
 
 			DECLARE cursor_Size CURSOR
 			FOR
-			SELECT Size FROM SizeMaster WITH(NOLOCK) WHERE SizeTypeID=@SizeType_ID;
+			--SELECT Size FROM SizeMaster WITH(NOLOCK) WHERE SizeTypeID=@SizeType_ID;-- for Size value
+			SELECT SizeID FROM SizeMaster WITH(NOLOCK) WHERE SizeTypeID=@SizeType_ID;-- for SizeID
 	
 			OPEN cursor_Size;
 	
@@ -125,7 +127,10 @@ BEGIN
 	
 	SET @query2=REPLACE(@query2,',FROM',' FROM');
 	
+	--PRINT @query1
 	--PRINT @queryunpivot;
+	--PRINT @query2
+	
 	IF @i = 1
 	PRINT @query2;
 
@@ -145,7 +150,7 @@ BEGIN
 	,ColorID 	
 	,ProductID
 	,QTY 
-	,Size 
+	,SizeID 
 	,ModelNo
 	,Rate
 	,StoreID)
@@ -158,7 +163,7 @@ DEALLOCATE OUTER_CURSOR
 
 	OPEN ColorSize_CURSOR 
 
-	FETCH NEXT FROM ColorSize_CURSOR INTO @ProductID, @StoreID, @ColorID, @Size , @QTY
+	FETCH NEXT FROM ColorSize_CURSOR INTO @ProductID, @StoreID, @ColorID, @SizeID , @QTY
 	WHILE @@FETCH_STATUS <> -1
 	BEGIN
 
@@ -167,7 +172,7 @@ DEALLOCATE OUTER_CURSOR
 	SET @i = 1
 
 	IF EXISTS(SELECT 1 FROM ProductStockColorSizeMaster WHERE ProductID=@ProductID AND ColorID=@ColorID AND StoreID=@StoreID
-		AND Size=@Size)
+		AND SizeID=@SizeID)
 	BEGIN
 	
 	--SELECT ProductID, StoreID, ColorID, Size , QTY
@@ -182,7 +187,7 @@ DEALLOCATE OUTER_CURSOR
 		ProductID=@ProductID 
 		AND ColorID=@ColorID 
 		AND StoreID=@StoreID
-		AND Size=@Size
+		AND SizeID=@SizeID
 	END
 
 	ELSE
@@ -190,17 +195,17 @@ DEALLOCATE OUTER_CURSOR
 		--SELECT 'insert',@ProductID, @StoreID, @ColorID, @Size , @QTY, @CreatedBy
 		INSERT INTO ProductStockColorSizeMaster
 		(
-			ProductID, StoreID, ColorID, Size , QTY, CreatedBy
+			ProductID, StoreID, ColorID, SizeID , QTY, CreatedBy
 		)
 		VALUES
 		(
-			@ProductID, @StoreID, @ColorID, @Size , @QTY, @CreatedBy
+			@ProductID, @StoreID, @ColorID, @SizeID , @QTY, @CreatedBy
 		)
 
 	END
 
 	SET @i+=1;
-	    FETCH NEXT FROM ColorSize_CURSOR INTO @ProductID, @StoreID, @ColorID, @Size , @QTY
+	    FETCH NEXT FROM ColorSize_CURSOR INTO @ProductID, @StoreID, @ColorID, @SizeID , @QTY
 
 	    END
 

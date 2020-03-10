@@ -25,7 +25,7 @@ BEGIN
 	FROM ProductStockMaster ps
 	INNER JOIN ProductMaster pm ON ps.ProductID = pm.ProductID
 	INNER JOIN ColorMaster cm ON ps.ColorID = cm.ColorID
-	Inner Join SizeMaster sm on sm.SizeID=ps.Size
+	Inner Join SizeMaster sm on ps.SizeID = sm.SizeID
 	WHERE ps.PurchaseInvoiceID = @PurchaseInvoiceID
 	AND ps.QTY>0
 

@@ -1,6 +1,7 @@
 ﻿-- =============================================
 -- Author:		<AAMIR KHAN>
 -- Create date: <29th FEB 2020>
+-- Modify date: <10th MAR 2020>
 -- Description:	<Description,,>
 -- =============================================
 -- EXEC [dbo].[Get_PurchaseInvoice_Color_Size] 'purinv01','123'
@@ -32,7 +33,8 @@ DECLARE @query2  AS NVARCHAR(MAX)
 
 DECLARE cursor_Size CURSOR
 FOR
-SELECT Size FROM SizeMaster WITH(NOLOCK) WHERE SizeTypeID=@SizeType_ID;
+--SELECT SizeID FROM SizeMaster WITH(NOLOCK) WHERE SizeTypeID=@SizeType_ID;-- for Size value
+SELECT Size FROM SizeMaster WITH(NOLOCK) WHERE SizeTypeID=@SizeType_ID;-- for SizeID
 
 OPEN cursor_Size;
 
@@ -52,6 +54,8 @@ CLOSE cursor_Size;
  
 DEALLOCATE cursor_Size;
 
+--PRINT @query1;
+
 SET @query2='SELECT clr.ColorName AS Color,
 clr.ColorID,pd3.DeliveryPurchaseID3,'+@query1+'pd3.Total,FROM DeliveryPurchaseBill1 pd1
 INNER JOIN DeliveryPurchaseBill2 pd2 ON pd2.DeliveryPurchaseID1=pd1.DeliveryPurchaseID1
@@ -62,6 +66,8 @@ pd1.SupplierBillNo='''+CAST(@SupplierBillNo AS VARCHAR)+'''AND pd2.DeliveryPurch
 
 
 SET @query2=REPLACE(@query2,',FROM',' FROM');
+
+--PRINT @query2;
 
 IF @i = 1
 PRINT @query2;
