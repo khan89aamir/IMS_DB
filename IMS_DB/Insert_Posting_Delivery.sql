@@ -1,9 +1,9 @@
 ﻿-- =============================================
 -- Author:		<AAMIR>
 -- Create date: <03 MARCH 2020>
--- Description:	<Description,,>
+-- Description:	<NOT USED>
 -- =============================================
---EXEC Insert_Posting_Delivery 1,1,1,1,'PURINV01',1
+--EXEC Insert_Posting_Delivery 1,1,1,1,'PURINV01',1 --NOT USED
 CREATE PROCEDURE [dbo].[Insert_Posting_Delivery]
 @ProductID INT=0
 ,@StoreID INT=0
