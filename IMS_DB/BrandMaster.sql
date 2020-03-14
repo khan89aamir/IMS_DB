@@ -2,7 +2,6 @@ CREATE TABLE [dbo].[BrandMaster](
 	[BrandID] [int] IDENTITY(1,1) NOT NULL,
 	[BrandName] [nvarchar](50) NOT NULL,
 	[SupplierID] [int] NULL,
-	[CountryID] [int] NULL,
 	[ActiveStatus] [bit] NOT NULL CONSTRAINT [DF_BrandMaster_ActiveStatus]  DEFAULT ((1)),
 	[CreatedBy] [int] NOT NULL CONSTRAINT [DF_BrandMaster_CreatedBy]  DEFAULT ((0)),
 	[CreatedOn] [datetime] NOT NULL CONSTRAINT [DF_BrandMaster_CreatedOn]  DEFAULT (getdate()),

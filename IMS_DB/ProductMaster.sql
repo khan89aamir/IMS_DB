@@ -2,7 +2,6 @@ CREATE TABLE [dbo].[ProductMaster](
 	[ProductID] [int] IDENTITY(1,1) NOT NULL,
 	[ProductName] [nvarchar](50) NOT NULL,
 	[CategoryID] [int] NULL,
-	[BrandID] [int] NULL,
 	[Rate] [decimal](18, 2) NULL CONSTRAINT [DF_ProductMaster_Rate]  DEFAULT ((1)),
 	[Photo] [varbinary](max) NULL,
 	[ActiveStatus] [bit] NOT NULL CONSTRAINT [DF_ProductMaster_ActiveStatus]  DEFAULT ((1)),

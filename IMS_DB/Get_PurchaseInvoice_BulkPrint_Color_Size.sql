@@ -7,7 +7,7 @@
 -- =============================================
 -- EXEC [dbo].[Get_PurchaseInvoice_BulkPrint_Color_Size] 1
 -- EXEC [dbo].[Get_PurchaseInvoice_BulkPrint_Color_Size] 'purinv01' OLD
-Create PROCEDURE [dbo].[Get_PurchaseInvoice_BulkPrint_Color_Size]
+CREATE PROCEDURE [dbo].[Get_PurchaseInvoice_BulkPrint_Color_Size]
 @PurchaseInvoiceID INT=0
 
 AS

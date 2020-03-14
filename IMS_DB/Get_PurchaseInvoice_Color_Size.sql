@@ -4,7 +4,7 @@
 -- Modify date: <10th MAR 2020>
 -- Description:	<Description,,>
 -- =============================================
--- EXEC [dbo].[Get_PurchaseInvoice_Color_Size] 'purinv01','123'
+-- EXEC [dbo].[Get_PurchaseInvoice_Color_Size] 'purinv02','123'
 CREATE PROCEDURE [dbo].[Get_PurchaseInvoice_Color_Size]
 @SupplierBillNo VARCHAR(MAX) =''
 ,@ModelNo NVARCHAR(50) =''

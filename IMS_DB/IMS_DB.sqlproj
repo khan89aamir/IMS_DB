@@ -100,6 +100,12 @@
     <Build Include="Get_PurchaseInvoice_Popup.sql" />
     <Build Include="Insert_PurchaseInvoice_BulkPrint_Color_Size.sql" />
     <Build Include="GetProductDetailsByBarCode.sql" />
+    <Build Include="Get_DiffPurchase_Received.sql" />
+    <Build Include="Get_Product_Master.sql" />
+    <Build Include="Get_Brand_Master.sql" />
+    <Build Include="Get_Material_Details.sql" />
+    <Build Include="Get_ProductDetails_Popup.sql" />
+    <Build Include="Get_DiffPurchase_Received_Details.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="IMS_DB.publish.xml" />
