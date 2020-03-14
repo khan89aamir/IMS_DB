@@ -106,6 +106,9 @@
     <Build Include="Get_Material_Details.sql" />
     <Build Include="Get_ProductDetails_Popup.sql" />
     <Build Include="Get_DiffPurchase_Received_Details.sql" />
+    <Build Include="GetProductDetailsByProductName.sql" />
+    <Build Include="GetProductDetails_By_Color_Size.sql" />
+    <Build Include="View_SalesBillDetails.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="IMS_DB.publish.xml" />

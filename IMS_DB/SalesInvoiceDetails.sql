@@ -2,7 +2,7 @@
 (
 	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
     [InvoiceNumber] NVARCHAR(50) NULL, 
-    [InvoiceDate] DATE NULL, 
+    [InvoiceDate] DATETIME NULL, 
     [CustomerID] INT NULL, 
     [SalesMan] INT NULL, 
     [ShopeID] INT NULL,
