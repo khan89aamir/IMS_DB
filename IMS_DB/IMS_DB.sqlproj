@@ -109,6 +109,8 @@
     <Build Include="GetProductDetailsByProductName.sql" />
     <Build Include="GetProductDetails_By_Color_Size.sql" />
     <Build Include="View_SalesBillDetails.sql" />
+    <Build Include="tblBarCodeSettings.sql" />
+    <Build Include="View_SalesDetails.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="IMS_DB.publish.xml" />
