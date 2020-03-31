@@ -5,7 +5,7 @@
 -- =============================================
 --EXEC Get_Product_Master '0'
 --EXEC Get_Product_Master 'b'
-CREATE PROCEDURE Get_Product_Master
+CREATE PROCEDURE [dbo].[Get_Product_Master]
 @ProductName NVARCHAR(100)='0'
 AS
 BEGIN
@@ -18,7 +18,7 @@ BEGIN
 	IF @ProductName = '0'
 	BEGIN
 
-	SELECT pm.ProductID,pm.ProductName,pm.CategoryID,cm.CategoryName AS [Department],Photo
+	SELECT pm.ProductID,pm.ProductName AS [ItemName],pm.CategoryID,cm.CategoryName AS [Department],Photo
 	,(CASE WHEN pm.ActiveStatus =1 THEN 'Active' WHEN pm.ActiveStatus =0 THEN 'InActive' END)ActiveStatus
 	FROM ProductMaster pm
 	INNER JOIN CategoryMaster cm ON pm.CategoryID = cm.CategoryID
@@ -28,7 +28,7 @@ BEGIN
 	ELSE
 	BEGIN
 	
-	SELECT pm.ProductID,pm.ProductName,pm.CategoryID,cm.CategoryName AS [Department],Photo
+	SELECT pm.ProductID,pm.ProductName AS [ItemName],pm.CategoryID,cm.CategoryName AS [Department],Photo
 	,(CASE WHEN pm.ActiveStatus =1 THEN 'Active' WHEN pm.ActiveStatus =0 THEN 'InActive' END)ActiveStatus
 	FROM ProductMaster pm
 	INNER JOIN CategoryMaster cm ON pm.CategoryID = cm.CategoryID
