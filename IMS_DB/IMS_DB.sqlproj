@@ -111,6 +111,8 @@
     <Build Include="View_SalesBillDetails.sql" />
     <Build Include="tblBarCodeSettings.sql" />
     <Build Include="View_SalesDetails.sql" />
+    <Build Include="tblFormRightDetails.sql" />
+    <Build Include="tblUserRights.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="IMS_DB.publish.xml" />
